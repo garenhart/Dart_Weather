@@ -40,7 +40,7 @@ public class MainActivityFragment extends Fragment {
         List<String> weekForecast = new ArrayList<>(Arrays.asList(forecastArray));
 
         mForecastAdapter = new ArrayAdapter<>(
-                // current layout
+                // current context
                 getActivity(),
                 // list item layout id
                 R.layout.list_item_forecast,
@@ -52,8 +52,6 @@ public class MainActivityFragment extends Fragment {
         ListView listView = (ListView)rootView.findViewById(R.id.listview_forecast);
 
         listView.setAdapter(mForecastAdapter);
-
-
 
         return rootView;
     }
