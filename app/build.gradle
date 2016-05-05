@@ -17,6 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // This should be accompanied by corresponding change in gradle.properties
+    // which is not committed to VCS for security reason:
+    // MyOpenWeatherMapApiKey="MY_API_KEY", where MY_API_KEY is the API key
+    // obtained from Open Weather Map.
+    buildTypes.each {
+        it.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', MyOpenWeatherMapApiKey
+    }
+
+
 }
 
 dependencies {
