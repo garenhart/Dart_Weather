@@ -112,6 +112,7 @@ public class ForecastFragment extends Fragment {
         return rootView;
     }
 
+    // Inner class.
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
@@ -126,9 +127,7 @@ public class ForecastFragment extends Fragment {
             return shortenedDateFormat.format(time);
         }
 
-        /**
-         * Prepare the weather high/lows for presentation.
-         */
+        // Prepare the weather high/lows for presentation.
         private String formatHighLows(double high, double low) {
             SharedPreferences sharedPrefs =
                     PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -152,13 +151,12 @@ public class ForecastFragment extends Fragment {
             return highLowStr;
         }
 
-        /**
-         * Take the String representing the complete forecast in JSON Format and
-         * pull out the data we need to construct the Strings needed for the wireframes.
-         *
-         * Fortunately parsing is easy:  constructor takes the JSON string and converts it
-         * into an Object hierarchy for us.
-         */
+
+        // Take the String representing the complete forecast in JSON Format and
+        // pull out the data we need to construct the Strings needed for the wireframes.
+        //
+        // Fortunately parsing is easy:  constructor takes the JSON string and converts it
+        // into an Object hierarchy for us.
         private String[] getWeatherDataFromJson(String forecastJsonStr, int numDays)
                 throws JSONException {
 
@@ -339,5 +337,6 @@ public class ForecastFragment extends Fragment {
             }
         }
     }
+
 }
 
